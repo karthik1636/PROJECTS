@@ -69,6 +69,22 @@ This outcome **directly validates** the research finding that prediction accurac
 
 ---
 
+### A Note on Spectral Bias (Over-smoothing)
+
+A key finding, even in the complete data experiment, is the slight visual difference between the ground truth "Target" and the "FNO Output". While the model's loss is nearly zero, the output appears smoother.
+
+This is a well-known characteristic of Fourier Neural Operators called **spectral bias**. Here's what it means in the context of this project:
+
+* **The Model's Shortcut:** To achieve the lowest possible error, the powerful FNO model found the most efficient "shortcut" was to perfectly learn the large-scale (low-frequency) structures while aggressively filtering out the fine-grained, small-scale (high-frequency) details.
+
+* **Visual vs. Mathematical Accuracy:** This results in an output that is mathematically almost identical to the target (hence the `0.000003` loss) but visually smoother.
+
+* **Alignment with Research:** This is not a failure but an expected and insightful outcome. The reference paper also notes this behavior, observing that their models' power spectra decay faster than the ground truth at high wave numbers, which is a direct result of this over-smoothing effect.
+
+Crucially, the long-term autoregressive rollout proved that these minor high-frequency discrepancies were not significant enough to destabilize the simulation, validating the FNO as a robust surrogate model for the core physics.
+
+---
+
 ## 🧠 Conclusion
 
 This project successfully demonstrates that **Fourier Neural Operators** are a powerful and effective tool for building **stable surrogate models** of self-gravitating systems.

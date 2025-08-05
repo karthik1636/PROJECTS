@@ -30,7 +30,7 @@ A powerful **3D Fourier Neural Operator (FNO)** was trained to learn the mapping
 
 The FNO demonstrated an exceptional ability to learn the one-step gravity transformation. The model achieved a **near-zero Test Loss of 0.000003**, indicating near-perfect replication of the ground-truth physics for a single time step.
 
-> 📸 <img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/8189e6d1-4f70-44e0-b2ae-34ff3401ab62" />
+<img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/8189e6d1-4f70-44e0-b2ae-34ff3401ab62" />
 
 
 The visual comparison shows that the FNO's output is virtually indistinguishable from the true simulation.
@@ -43,7 +43,8 @@ This was the project's most significant success. When tasked with predicting **5
 
 This confirms that the model’s tiny per-step errors did **not catastrophically accumulate**, making it a robust tool for long-term simulation.
 
-> 📸 *Insert your image of the successful long-term rollout here*
+<img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/7b9c4225-c00d-4a39-9cb3-fc73f5d610c4" />
+
 
 ---
 
@@ -54,7 +55,14 @@ When trained on data with **50% of the input voxels missing**, the FNO still man
 - **A Harder Problem:** The training process showed this task was significantly more difficult, as the model had to both *infer the missing data* and *predict its physical evolution*.
 - **Smoother Predictions:** The model's output was smoother and less detailed compared to the full-data experiment. This is an expected and realistic outcome, as the model produces a best guess from partial information.
 
-> 📸 *Insert your image of the incomplete data experiment result here*
+<img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/e02c33e2-a089-4a62-bfdb-96319bab9e47" />
+
+
+Running long-term prediction using the trained FNO...
+Evolution complete. Visualizing initial state vs. state after 50 steps.
+
+<img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/629d9da1-b88a-47ac-be7b-c55ad09e235f" />
+
 
 #### Alignment with Research:
 This outcome **directly validates** the research finding that prediction accuracy is *"significantly degraded"* when models are given incomplete information.

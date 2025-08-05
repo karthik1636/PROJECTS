@@ -1,58 +1,71 @@
-FNO-Gravity: A Surrogate Model for Self-Gravitating Systems
-This project explores the use of Fourier Neural Operators (FNOs) to build a surrogate model for the evolution of a self-gravitating fluid under periodic boundary conditions. The work is directly inspired by the research in "Modeling Turbulent and Self-Gravitating Fluids with Fourier Neural Operators" (Poletti, Offner, et al., arXiv:2507.23662).
+# FNO-Gravity: A Surrogate Model for Self-Gravitating Systems
 
-The primary goal was to validate the FNO's ability to learn complex, non-linear physical dynamics and test its stability in long-term, autoregressive predictions. A secondary goal was to investigate the model's performance when trained on incomplete data, mirroring a key challenge in real-world astrophysical observations.
+This project explores the use of **Fourier Neural Operators (FNOs)** to build a surrogate model for the evolution of a self-gravitating fluid under periodic boundary conditions. The work is directly inspired by the research in [_"Modeling Turbulent and Self-Gravitating Fluids with Fourier Neural Operators"_](https://arxiv.org/abs/2507.23662) (Poletti, Offner, et al., arXiv:2507.23662).
 
-🚀 Project Overview
+The primary goal was to validate the FNO's ability to learn complex, non-linear physical dynamics and test its stability in long-term, autoregressive predictions. A secondary goal was to investigate the model's performance when trained on **incomplete data**, mirroring a key challenge in real-world astrophysical observations.
+
+---
+
+## 🚀 Project Overview
+
 The project was executed in three main phases:
 
-1. Physics-Informed Data Generation
-A simplified 3D gravity simulation was created using the Poisson equation in Fourier space. This served as the ground truth data generator, modeling how initial, smooth density fluctuations evolve over a single time step.
+### 1. Physics-Informed Data Generation
+A simplified **3D gravity simulation** was created using the **Poisson equation in Fourier space**. This served as the *ground truth* data generator, modeling how initial, smooth density fluctuations evolve over a single time step.
 
-2. Surrogate Model Training
-A powerful 3D Fourier Neural Operator (FNO) was trained to learn the mapping from an initial density field to its future state as dictated by the gravity simulation.
+### 2. Surrogate Model Training
+A powerful **3D Fourier Neural Operator (FNO)** was trained to learn the mapping from an initial density field to its future state as dictated by the gravity simulation.
 
-3. Validation & Advanced Testing
-Single-Step Prediction: Evaluating accuracy on a test set.
+### 3. Validation & Advanced Testing
 
-Autoregressive Rollout: A long-term stability test where the model's output is fed back as its own input for 50 consecutive steps.
+- **Single-Step Prediction:** Evaluating accuracy on a test set.
+- **Autoregressive Rollout:** A long-term stability test where the model's output is fed back as its own input for 50 consecutive steps.
+- **Incomplete Data Challenge:** A final, advanced test where the model was trained on inputs with 50% of the data randomly removed to see if it could infer the missing information and predict the correct evolution.
 
-Incomplete Data Challenge: A final, advanced test where the model was trained on inputs with 50% of the data randomly removed to see if it could infer the missing information and predict the correct evolution.
+---
 
-🔍 Key Findings & Insights
-✅ 1. High-Fidelity Learning of Single-Step Physics
-The FNO demonstrated an exceptional ability to learn the one-step gravity transformation. The model achieved a near-zero Test Loss of 0.000003, indicating near-perfect replication of the ground-truth physics for a single time step.
+## 🔍 Key Findings & Insights
 
-📸 Insert your image of the successful single-step prediction here
+### ✅ 1. High-Fidelity Learning of Single-Step Physics
+
+The FNO demonstrated an exceptional ability to learn the one-step gravity transformation. The model achieved a **near-zero Test Loss of 0.000003**, indicating near-perfect replication of the ground-truth physics for a single time step.
+
+> 📸 *Insert your image of the successful single-step prediction here*
 
 The visual comparison shows that the FNO's output is virtually indistinguishable from the true simulation.
 
-🔁 2. Confirmed Long-Term Stability in Autoregressive Rollouts
-This was the project's most significant success. When tasked with predicting 50 consecutive steps, the FNO remained stable and physically plausible. It successfully simulated the gravitational collapse of initial fluctuations into a well-defined, cosmic web-like structure without exploding or vanishing.
+---
 
-This confirms that the model’s tiny per-step errors did not catastrophically accumulate, making it a robust tool for long-term simulation.
+### 🔁 2. Confirmed Long-Term Stability in Autoregressive Rollouts
 
-📸 Insert your image of the successful long-term rollout here
+This was the project's most significant success. When tasked with predicting **50 consecutive steps**, the FNO remained stable and physically plausible. It successfully simulated the gravitational collapse of initial fluctuations into a well-defined, **cosmic web-like structure** without exploding or vanishing.
 
-🧩 3. Realistic Performance on the Incomplete Data Challenge
-When trained on data with 50% of the input voxels missing, the FNO still managed to learn the general evolution of the system.
+This confirms that the model’s tiny per-step errors did **not catastrophically accumulate**, making it a robust tool for long-term simulation.
 
-A Harder Problem: The training process showed this task was significantly more difficult, as the model had to both infer the missing data and predict its physical evolution.
+> 📸 *Insert your image of the successful long-term rollout here*
 
-Smoother Predictions: The model's output was smoother and less detailed compared to the full-data experiment. This is an expected and realistic outcome, as the model produces a best guess from partial information.
+---
 
-📸 Insert your image of the incomplete data experiment result here
+### 🧩 3. Realistic Performance on the Incomplete Data Challenge
 
-Alignment with Research:
-This outcome directly validates the research finding that prediction accuracy is "significantly degraded" when models are given incomplete information.
+When trained on data with **50% of the input voxels missing**, the FNO still managed to learn the general evolution of the system.
 
-🧠 Conclusion
-This project successfully demonstrates that Fourier Neural Operators are a powerful and effective tool for building stable surrogate models of self-gravitating systems.
+- **A Harder Problem:** The training process showed this task was significantly more difficult, as the model had to both *infer the missing data* and *predict its physical evolution*.
+- **Smoother Predictions:** The model's output was smoother and less detailed compared to the full-data experiment. This is an expected and realistic outcome, as the model produces a best guess from partial information.
 
-FNOs can learn complex physical laws with high fidelity.
+> 📸 *Insert your image of the incomplete data experiment result here*
 
-They remain stable during long-term, autoregressive simulations.
+#### Alignment with Research:
+This outcome **directly validates** the research finding that prediction accuracy is *"significantly degraded"* when models are given incomplete information.
 
-Even with incomplete data, FNOs can make reasonable physical inferences, although with some degradation in accuracy.
+---
 
-This work lays a strong foundation for future research into AI-driven scientific simulation, especially in astrophysics and cosmology.
+## 🧠 Conclusion
+
+This project successfully demonstrates that **Fourier Neural Operators** are a powerful and effective tool for building **stable surrogate models** of self-gravitating systems.
+
+- FNOs can learn complex physical laws with high fidelity.
+- They remain **stable** during long-term, autoregressive simulations.
+- Even with incomplete data, FNOs can make *reasonable physical inferences*, although with some degradation in accuracy.
+
+This work lays a strong foundation for future research into **AI-driven scientific simulation**, especially in astrophysics and cosmology.

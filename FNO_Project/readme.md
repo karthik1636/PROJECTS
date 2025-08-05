@@ -30,7 +30,8 @@ A powerful **3D Fourier Neural Operator (FNO)** was trained to learn the mapping
 
 The FNO demonstrated an exceptional ability to learn the one-step gravity transformation. The model achieved a **near-zero Test Loss of 0.000003**, indicating near-perfect replication of the ground-truth physics for a single time step.
 
-> 📸 *Insert your image of the successful single-step prediction here*
+> 📸 <img width="1190" height="418" alt="image" src="https://github.com/user-attachments/assets/8189e6d1-4f70-44e0-b2ae-34ff3401ab62" />
+
 
 The visual comparison shows that the FNO's output is virtually indistinguishable from the true simulation.
 
